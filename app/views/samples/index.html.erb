@@ -1,0 +1,17 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Samples</h1>
+    <div class="text-center">
+    <%= link_to 'Back to Session', taste_session_path(@ts), class: "rounded-lg py-3 my-2 px-5 block bg-gray-100 font-medium" %>
+    <%= link_to 'New sample', new_taste_session_sample_path, class: "rounded-lg py-3 my-2 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+  </div>
+
+  <div id="samples" class="min-w-full">
+    <%= render @samples %>
+  </div>
+</div>

@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  active_record:
+    models:
+      taste_session: Session

@@ -14,6 +14,7 @@
 #
 class TasteSession < ApplicationRecord
   has_rich_text :detail
+  has_many :samples, dependent: :destroy
 
   before_create :assign_link_name
 

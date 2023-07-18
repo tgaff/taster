@@ -1,0 +1,26 @@
+<div id="<%= dom_id sample %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Taste session:</strong>
+    <%= sample.taste_session.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <% if sample.name.present? %>
+      <%= sample.name %>
+    <% else %>
+      <span class="italic text-gray-300">Defaulting to Reveal name: <%= sample.reveal_name %></span>
+    <% end %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Reveal name:</strong>
+    <%= sample.reveal_name %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this sample", [@ts, sample], class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this sample', edit_taste_session_sample_path(@ts, sample), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
