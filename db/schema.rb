@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_18_032407) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_18_032506) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,10 +53,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_032407) do
   end
 
   create_table "taste_sessions", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "link_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["link_name"], name: "index_taste_sessions_on_link_name", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
