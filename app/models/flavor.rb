@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: flavors
@@ -15,6 +17,6 @@ class Flavor < ApplicationRecord
   private
 
   def name_is_unique
-    errors.add(:name, "must be unique") if Flavor.i18n.where(name: name_en).where.not(id: id).any?
+    errors.add(:name, "must be unique") if Flavor.i18n.where(name: name_en).where.not(id:).any?
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: taste_sessions
@@ -26,8 +28,8 @@ RSpec.describe TasteSession, type: :model do
   context 'when the name already exists as a link_name' do
     before do
       described_class.create!(name: 'test', link_name: 'test')
-
     end
+
     it 'appends some numbers' do
       x = described_class.create!(name: 'test')
       expect(x.link_name).to match(/test_\d+/)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: flavors
@@ -24,7 +26,8 @@ RSpec.describe Flavor, type: :model do
   end
 
   describe 'validations' do
-    let!(:pre_existing) { described_class.new(name: 'tangy').save! }
+    before { described_class.new(name: 'tangy').save! }
+
     it 'enforces a unique name' do
       duplicate = described_class.new(name: 'tangy')
       expect(duplicate).not_to be_valid

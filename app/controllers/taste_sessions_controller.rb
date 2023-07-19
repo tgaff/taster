@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasteSessionsController < ApplicationController
   before_action :set_taste_session, only: %i[ show edit update destroy ]
 
@@ -58,13 +60,14 @@ class TasteSessionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_taste_session
-      @taste_session = TasteSession.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def taste_session_params
-      params.require(:taste_session).permit(:name, :detail, :link_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_taste_session
+    @taste_session = TasteSession.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def taste_session_params
+    params.require(:taste_session).permit(:name, :detail, :link_name)
+  end
 end

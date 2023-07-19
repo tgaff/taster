@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: taste_sessions
@@ -21,13 +23,11 @@ class TasteSession < ApplicationRecord
   validates :name, presence: true
 
   def assign_link_name
-    return unless link_name.blank?
-    self.link_name = name.parameterize.underscore
-    return unless self.class.find_by(link_name: self.link_name)
-    (1..20).each do |i|
-      self.link_name = name.parameterize.underscore + "_#{SecureRandom.rand(10000)}"
-      return unless self.class.find_by(link_name: self.link_name)
+    return if link_name.present?
 
+    20.times do
+      self.link_name = name.parameterize.underscore + "_#{SecureRandom.rand(10_000)}"
+      return unless self.class.find_by(link_name:)
     end
     raise StandardError.new, "Couldn't find a link name for this record"
   end

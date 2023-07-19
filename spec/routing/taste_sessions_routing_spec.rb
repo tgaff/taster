@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe TasteSessionsController, type: :routing do
@@ -17,7 +19,6 @@ RSpec.describe TasteSessionsController, type: :routing do
     it "routes to #edit" do
       expect(get: "/taste_sessions/1/edit").to route_to("taste_sessions#edit", id: "1")
     end
-
 
     it "routes to #create" do
       expect(post: "/taste_sessions").to route_to("taste_sessions#create")

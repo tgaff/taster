@@ -17,6 +17,15 @@ AllCops:
 Bundler/OrderedGems:
   Enabled: false # allow grouping gems of related functionality
 
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Enabled: false
+
+Layout/FirstArrayElementIndentation: # results in overly long lines
+  EnforcedStyle: consistent
+
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: consistent
+
 
 # Metrics
 
@@ -49,6 +58,9 @@ Rails/Pluck:
 
 Rails/PluckInWhere:
   Enabled: true
+
+Rails/RakeEnvironment:
+  Enabled: false
 
 Rails/ReadWriteAttribute:
   Enabled: false # too many issues: https://github.com/rubocop/rails-style-guide/issues/155
@@ -116,5 +128,29 @@ Style/AutoResourceCleanup:
 Style/BlockDelimiters:
   EnforcedStyle: braces_for_chaining
 
+Style/Documentation: # MVC & Rails conventions are sufficient documentation for these classes
+  Exclude:
+    - app/mailers/**/*
+    - app/models/**/*
+    - app/controllers/**/*
+    - app/helpers/**/*
+    - config/**/*
+
+Style/EmptyMethod:
+  Enabled: false
+
 Style/StringLiterals:
-  Enabled: false # no performance difference these days, only annoyance
+  Enabled: false # no performance difference these days, only preference and frustration
+
+
+
+
+
+
+inherit_from:
+  - .rubocop.local_customs.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+

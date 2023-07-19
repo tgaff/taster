@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SamplesController < ApplicationController
   before_action :set_session
   before_action :set_sample, only: %i[ show edit update destroy ]
@@ -59,16 +61,17 @@ class SamplesController < ApplicationController
   end
 
   private
-    def set_session
-      @ts = TasteSession.find(params[:taste_session_id])
-    end
 
-    def set_sample
-      @sample = @ts.samples.find(params[:id])
-    end
+  def set_session
+    @ts = TasteSession.find(params[:taste_session_id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def sample_params
-      params.require(:sample).permit(:taste_session_id, :name, :reveal_name)
-    end
+  def set_sample
+    @sample = @ts.samples.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def sample_params
+    params.require(:sample).permit(:taste_session_id, :name, :reveal_name)
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 flavors = [
   { en: 'oak',              ko: '', ja: '' },
   { en: 'spicy',            ko: '', ja: '' },
@@ -33,6 +35,6 @@ flavors = [
 
 flavors.each do |flav|
   Flavor.i18n
-    .find_or_initialize_by(name: flav[:en])
-    .update!(name: flav[:en], name_ko: flav[:ko], name_ja: flav[:ja])
+        .find_or_initialize_by(name: flav[:en])
+        .update!(name: flav[:en], name_ko: flav[:ko], name_ja: flav[:ja])
 end

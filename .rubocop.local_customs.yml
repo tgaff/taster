@@ -1,0 +1,6 @@
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+AllCops:
+  Exclude:
+   - db/migrate/20230718*
