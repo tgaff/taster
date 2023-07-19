@@ -1,0 +1,18 @@
+# This file serves as a .pryrc for the Guard prompt
+
+def lint
+  puts system("rubocop -a")
+end
+alias :l :lint
+
+def fix
+  puts system("bundle exec rubocop -A")
+end
+
+def migrate
+  puts system("bundle exec rails db:migrate")
+end
+
+def rollback
+  puts system("bundle exec rails db:rollback")
+end

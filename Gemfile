@@ -69,6 +69,10 @@ group :development do
   gem "web-console"
   gem 'annotate'
 
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
