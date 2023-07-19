@@ -22,4 +22,13 @@ RSpec.describe Flavor, type: :model do
     flavor.name_ja = 'asdf'
     expect(flavor.name_ja).to eq 'asdf'
   end
+
+  describe 'validations' do
+    let!(:pre_existing) { described_class.new(name: 'tangy').save! }
+    it 'enforces a unique name' do
+      duplicate = described_class.new(name: 'tangy')
+      expect(duplicate).not_to be_valid
+      expect(duplicate.errors[:name]).to include('must be unique')
+    end
+  end
 end
