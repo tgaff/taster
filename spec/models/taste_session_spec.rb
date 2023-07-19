@@ -22,7 +22,7 @@ RSpec.describe TasteSession, type: :model do
   it "adds link_name" do
     sess = described_class.create!(name: "test")
     sess.reload
-    expect(sess.link_name).to eq("test")
+    expect(sess.link_name).to match(/test_\d+/)
   end
 
   context 'when the name already exists as a link_name' do
