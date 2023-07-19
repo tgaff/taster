@@ -1,0 +1,120 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-capybara
+  - rubocop-performance
+
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - bin/*
+    - tmp/**/*
+  NewCops: enable
+  SuggestExtensions: false
+
+Bundler/OrderedGems:
+  Enabled: false # allow grouping gems of related functionality
+
+
+# Metrics
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - '**/*.gemspec'
+    - 'spec/**/*'
+
+Metrics/MethodLength:
+  Max: 15
+  CountAsOne: ['array', 'heredoc', 'method_call', 'hash']
+
+# Rails
+
+Rails/FilePath:
+  Enabled: false # does not improve readability
+
+Rails/MatchRoute:
+  Enabled: false # does not improve readability
+
+Rails/NegateInclude:
+  Enabled: false
+
+Rails/Pluck:
+  Enabled: true
+
+Rails/PluckInWhere:
+  Enabled: true
+
+Rails/ReadWriteAttribute:
+  Enabled: false # too many issues: https://github.com/rubocop/rails-style-guide/issues/155
+
+Rails/ShortI18n:
+  Enabled: false # allow more descriptive syntax when helpful
+
+
+# RSpec
+RSpec/BeNil: # both read equally well
+  Enabled: false
+
+RSpec/Capybara/FeatureMethods:
+  Enabled: true
+
+RSpec/ContextWording:
+  Prefixes:
+    - when
+    - with
+    - without
+    - if
+    - unless
+    - for
+    - after
+    - before
+    - and
+    - but
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/ExpectChange:
+  Enabled: false
+
+RSpec/HookArgument:
+  Enabled: false
+
+RSpec/ImplicitExpect: # this 'should' form does not rely on monkeypatching
+  Enabled: false
+
+# For unit tests only.  For large functional or integration tests where setup time is costly, disable this rule.
+RSpec/MultipleExpectations:
+  Max: 3
+  Exclude:
+   - 'spec/features/**/*'
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NotToNot:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/Rails/InferredSpecType:
+  Enabled: false
+
+
+# Style
+
+Style/AutoResourceCleanup:
+  Enabled: true
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/StringLiterals:
+  Enabled: false # no performance difference these days, only annoyance
