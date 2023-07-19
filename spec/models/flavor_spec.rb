@@ -25,6 +25,10 @@ RSpec.describe Flavor, type: :model do
     expect(flavor.name_ja).to eq 'asdf'
   end
 
+  describe 'associations' do
+    it { should have_many(:flavor_ratings).dependent(:destroy) }
+  end
+
   describe 'validations' do
     before { described_class.new(name: 'tangy').save! }
 

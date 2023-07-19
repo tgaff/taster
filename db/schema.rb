@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_19_091727) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_19_092528) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_091727) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "flavor_ratings", force: :cascade do |t|
+    t.bigint "sample_id", null: false
+    t.bigint "flavor_id", null: false
+    t.integer "flavor_strength", limit: 2, default: 0
+    t.bigint "participant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flavor_id"], name: "index_flavor_ratings_on_flavor_id"
+    t.index ["participant_id"], name: "index_flavor_ratings_on_participant_id"
+    t.index ["sample_id", "flavor_id", "participant_id"], name: "single_flavor_rating_per_sample", unique: true
+    t.index ["sample_id"], name: "index_flavor_ratings_on_sample_id"
   end
 
   create_table "flavors", force: :cascade do |t|
@@ -107,5 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_091727) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "flavor_ratings", "flavors"
+  add_foreign_key "flavor_ratings", "participants"
+  add_foreign_key "flavor_ratings", "samples"
   add_foreign_key "samples", "taste_sessions"
 end

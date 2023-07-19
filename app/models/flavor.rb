@@ -12,6 +12,7 @@ class Flavor < ApplicationRecord
   extend Mobility
   translates :name, type: :string
 
+  has_many :flavor_ratings, dependent: :destroy
   validate :name_is_unique
 
   private

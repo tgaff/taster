@@ -21,4 +21,5 @@
 #
 class Sample < ApplicationRecord
   belongs_to :taste_session
+  has_many :flavor_ratings, dependent: :destroy
 end

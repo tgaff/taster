@@ -140,10 +140,21 @@ Style/Documentation: # MVC & Rails conventions are sufficient documentation for 
 Style/EmptyMethod:
   Enabled: false
 
+Style/PreferredHashMethods:
+  Enabled: false
+
+Style/PercentQLiterals:
+  Enabled: false # undetectable performance difference, at the cost of decreased understanding
+
 Style/StringLiterals:
   Enabled: false # no performance difference these days, only preference and frustration
 
+Style/SymbolArray:
+  Enabled: false # reduces readability especially for those who've spent less time in ruby
 
+Style/WordArray:
+  Enabled: true
+  MinSize: 6 # the traditional [""] is easier to understand, but there is a typing improvement with large sets
 
 
 
