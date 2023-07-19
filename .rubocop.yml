@@ -135,6 +135,7 @@ Style/Documentation: # MVC & Rails conventions are sufficient documentation for 
     - app/controllers/**/*
     - app/helpers/**/*
     - config/**/*
+    - db/**/*
 
 Style/EmptyMethod:
   Enabled: false

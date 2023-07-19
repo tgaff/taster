@@ -3,7 +3,7 @@
 def lint
   puts system("rubocop -a")
 end
-alias :l :lint
+alias l lint
 
 def fix
   puts system("bundle exec rubocop -A")
