@@ -4,8 +4,8 @@ class TastingController < ApplicationController
   before_action :tasting
 
   def show
+    cookies.encrypted[:tasting_session_id] = tasting.id
     info cookies.to_h
-    cookies.permanent[:tasting_session_id] = tasting.id
 
     return if participant
 
@@ -15,6 +15,7 @@ class TastingController < ApplicationController
 
   private
 
+  # TODO: this controller can move into Tasting and use the method on its Base class
   def tasting
     @taste_session = TasteSession.find(params[:id])
   end

@@ -1,0 +1,19 @@
+<div>
+  <h1 class="font-bold text-4xl">Sample: <span class="text-orange-500 px-2"><%= @sample.name %></span></h1>
+  <div class="my-4">
+    <p>Try sample <span class="text-orange-500 px-1 font-semibold"><%= @sample.name %></span> and record your impressions below.</p>
+    <p>Each rating is on a scale of <span class="text-blue-700">1-3</span></p>
+  </div>
+  <div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-6">
+    <% @flavor_ratings.each do |fl| %>
+      <%= form_with url: sample_flavor_ratings_path(@sample), method: :put, class: 'grid' do |f| %>
+        <%= f.hidden_field :flavor_id, value: fl.flavor_id %>
+        <div class="border-2 rounded-lg flex flex-row items-center hover:border-gray-800 hover:shadow-lg	active:animate-[wiggle_1s_ease-in-out_infinite]">
+          <div class='z-10 p-6 w-full text-left font-semibold text-xl hover:bg-gradient-to-r from-sky-100 hover:bg-opacity-25'> - </div>
+          <span class="z-0 p-0 -m-4 text-center"><%= fl.flavor.name %></span>
+          <button type='submit' class='z-10 p-6 w-full text-right font-semibold text-xl hover:bg-gradient-to-l from-orange-200 hover:bg-opacity-25'>+</button>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
