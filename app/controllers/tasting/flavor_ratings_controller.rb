@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tasting
   class FlavorRatingsController < BaseController
     before_action :set_tasting
