@@ -16,7 +16,7 @@ flavors = [
   { en: 'sweet',            ko: '', ja: '' },
   { en: 'pear',             ko: '', ja: '' },
   { en: 'almonds',          ko: '', ja: '' },
-  { en: 'black peeper',     ko: '', ja: '' },
+  { en: 'black pepper',     ko: '', ja: '' },
   { en: 'soft',             ko: '', ja: '' },
   { en: 'smooth',           ko: '', ja: '' },
   { en: 'dried fruit',      ko: '', ja: '' },
