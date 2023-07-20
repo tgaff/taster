@@ -17,7 +17,7 @@ AllCops:
 Bundler/OrderedGems:
   Enabled: false # allow grouping gems of related functionality
 
-Layout/SpaceInsidePercentLiteralDelimiters:
+Layout/EmptyLinesAroundClassBody:
   Enabled: false
 
 Layout/FirstArrayElementIndentation: # results in overly long lines
@@ -25,6 +25,9 @@ Layout/FirstArrayElementIndentation: # results in overly long lines
 
 Layout/FirstArgumentIndentation:
   EnforcedStyle: consistent
+
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Enabled: false
 
 
 # Metrics

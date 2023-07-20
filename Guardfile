@@ -31,7 +31,7 @@ group :red_green_refactor, halt_on_fail: true do
     end
   end
 
-  guard :rubocop, keep_failed: true do
+  guard :rubocop, keep_failed: true, cli: '--display-cop-names' do
     watch(/.+\.rb$/)
     watch("Guardfile")
   end

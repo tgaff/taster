@@ -9,6 +9,10 @@ RSpec.describe "taste_sessions/show", type: :view do
       detail: nil,
       link_name: "Link Name"
     ))
+    assign(
+      :qr,
+      '<svg><ellipse cx="200" cy="80" rx="100" ry="50" style="fill:yellow;stroke:purple;stroke-width:2" /></svg>'
+    )
   end
 
   it "renders attributes in <p>" do

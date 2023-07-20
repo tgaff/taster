@@ -72,6 +72,7 @@ class TasteSessionsController < ApplicationController
       use_path: true
     )
   end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_taste_session
     @taste_session = TasteSession.find(params[:id])
