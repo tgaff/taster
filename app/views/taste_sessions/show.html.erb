@@ -6,14 +6,22 @@
 
     <%= render @taste_session %>
 
-    <%= link_to 'Edit', edit_taste_session_path(@taste_session), class: "mt-2 rounded-lg py-3 px-5 bg-yellow-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy', taste_session_path(@taste_session), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium" %>
+    <div>
+      <%= link_to 'Edit', edit_taste_session_path(@taste_session), class: "mt-2 rounded-lg py-3 px-5 bg-yellow-100 inline-block font-medium" %>
+      <div class="inline-block ml-2">
+        <%= button_to 'Destroy', taste_session_path(@taste_session), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium" %>
+      </div>
     </div>
-    <%= link_to 'Back to Session index', taste_sessions_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="my-5">
-
+      <%= link_to 'Back to Session index', taste_sessions_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium bg-violet-100" %>
+    </div>
+    <div class="my-5">
       <%= link_to 'Samples for this Session', taste_session_samples_path(@taste_session), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
+    <div class="my-5 border-[32px] rounded-2xl  border-lime-300">
+      <div class="bg-gradient-to-r  from-pink-300 via-red-400 to-yellow-300" >
+        <%= @qr.html_safe %>
+      </div>
     </div>
   </div>
 </div>

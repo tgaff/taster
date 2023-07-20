@@ -10,6 +10,7 @@ class TasteSessionsController < ApplicationController
 
   # GET /taste_sessions/1 or /taste_sessions/1.json
   def show
+    @qr = qr_svg
   end
 
   # GET /taste_sessions/new
@@ -61,6 +62,16 @@ class TasteSessionsController < ApplicationController
 
   private
 
+  def qr_svg
+    qrcode = RQRCode::QRCode.new("https://kyan.com")
+    qrcode.as_svg(
+      color: "000",
+      shape_rendering: "crispEdges",
+      module_size: 11,
+      standalone: true,
+      use_path: true
+    )
+  end
   # Use callbacks to share common setup or constraints between actions.
   def set_taste_session
     @taste_session = TasteSession.find(params[:id])
