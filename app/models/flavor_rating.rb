@@ -26,7 +26,21 @@
 #  fk_rails_...  (sample_id => samples.id)
 #
 class FlavorRating < ApplicationRecord
+  MAXIMUM_STRENGTH = 3
+  MINIMUM_STRENGTH = 0
+
   belongs_to :sample
   belongs_to :flavor
   belongs_to :participant
+
+  validates :flavor_strength, numericality: { only_integer: true, in: (MINIMUM_STRENGTH..MAXIMUM_STRENGTH) }
+
+  before_validation :stay_within_limits
+
+  private
+
+  def stay_within_limits
+    self.flavor_strength = MAXIMUM_STRENGTH if flavor_strength > MAXIMUM_STRENGTH
+    self.flavor_strength = MINIMUM_STRENGTH if flavor_strength < MINIMUM_STRENGTH
+  end
 end

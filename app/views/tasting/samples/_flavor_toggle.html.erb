@@ -1,10 +1,11 @@
 <%
+  # FIXME: this at a minimum should be a helper
   shadow = if flavor_rating.flavor_strength == 0
     "shadow-md shadow-cyan-500/10"
     elsif flavor_rating.flavor_strength == 1
-      "shadow-lg shadow-orange-500/20"
+      "shadow-lg shadow-yellow-400/20"
     elsif flavor_rating.flavor_strength == 2
-      "shadow-lg shadow-orange-500/30"
+      "shadow-lg shadow-orange-400/30"
     else
       "shadow-xl shadow-orange-500/50"
     end
