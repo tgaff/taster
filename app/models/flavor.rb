@@ -13,7 +13,9 @@ class Flavor < ApplicationRecord
   translates :name, type: :string
 
   has_many :flavor_ratings, dependent: :destroy
-  validate :name_is_unique
+  # validate :name_is_unique
+
+  validates :name, uniqueness: true
 
   private
 

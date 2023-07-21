@@ -35,7 +35,10 @@ RSpec.describe Flavor, type: :model do
     it 'enforces a unique name' do
       duplicate = described_class.new(name: 'tangy')
       expect(duplicate).not_to be_valid
-      expect(duplicate.errors[:name]).to include('must be unique')
+      expect(duplicate.errors[:name]).to include('has already been taken')
     end
+
+    # same as above, remove if this name thing works
+    it { should validate_uniqueness_of(:name) }
   end
 end
