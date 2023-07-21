@@ -5,6 +5,10 @@ module Tasting
     before_action :set_tasting
 
     def update
+      flr = FlavorRating.find_or_initialize_by(participant: participant, sample: sample, flavor: flavor)
+      flr.flavor_strength += crement
+      flr.save
+      @flavor_rating = flr
     end
 
     private
@@ -14,7 +18,11 @@ module Tasting
     end
 
     def flavor
-      Flavor.find(params[:flavor])
+      @flavor ||= Flavor.find(params[:flavor_id])
+    end
+
+    def crement
+      params[:crement].to_i
     end
   end
 end

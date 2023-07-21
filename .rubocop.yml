@@ -143,6 +143,9 @@ Style/Documentation: # MVC & Rails conventions are sufficient documentation for 
 Style/EmptyMethod:
   Enabled: false
 
+Style/HashSyntax:
+  EnforcedShorthandSyntax: either
+
 Style/PreferredHashMethods:
   Enabled: false
 

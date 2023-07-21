@@ -3,13 +3,12 @@
 module Tasting
   class SamplesController < BaseController
     before_action :set_tasting
+    before_action :sample
 
     def show
-      @sample = @taste_session.samples.find(params[:id])
-
       saved_flavor_ratings = FlavorRating.where(
-        sample: @sample,
-        participant: @participant
+        sample: sample,
+        participant: participant
       )
 
       @flavor_ratings = Flavor.all.map do |flav|
@@ -17,8 +16,14 @@ module Tasting
 
         next rating if rating.present?
 
-        FlavorRating.new(sample: @sample, flavor: flav, participant: @participant)
+        FlavorRating.new(sample: sample, flavor: flav, participant: @participant)
       end
+    end
+
+    private
+
+    def sample
+      @sample ||= @taste_session.samples.find(params[:id])
     end
   end
 end

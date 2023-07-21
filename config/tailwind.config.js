@@ -16,6 +16,15 @@ module.exports = {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
+        },
+        fadeaway: {
+          '0%': {
+            opacity: 1
+          },
+          '100%': {
+            opacity: 0,
+            translate: '0px -80px'
+          }
         }
       }
     },
