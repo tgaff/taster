@@ -16,5 +16,10 @@
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
+    <footer>
+      <div class="text-center p-4">
+        <span><%= link_to '한국어', locale: 'ko' %></span>
+        <span><%= link_to 'English', locale: 'en' %>
+    </footer>
   </body>
 </html>

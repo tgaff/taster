@@ -45,6 +45,9 @@ Metrics/MethodLength:
   Max: 15
   CountAsOne: ['array', 'heredoc', 'method_call', 'hash']
 
+Naming/BlockForwarding:
+  Enabled: false # no performance or readability improvement from this rule
+
 # Rails
 
 Rails/FilePath:
