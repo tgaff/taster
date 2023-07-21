@@ -63,7 +63,7 @@ class TasteSessionsController < ApplicationController
   private
 
   def qr_svg
-    qrcode = RQRCode::QRCode.new("https://kyan.com")
+    qrcode = RQRCode::QRCode.new(tasting_url(@taste_session))
     qrcode.as_svg(
       color: "000",
       shape_rendering: "crispEdges",
