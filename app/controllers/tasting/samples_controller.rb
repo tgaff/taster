@@ -20,6 +20,19 @@ module Tasting
       end
     end
 
+    # def results
+    #   @flavor_ratings = FlavorRating.where(sample_id: tasting.samples.ids, flavor_strength: 1..)
+    #   participant_ids = @flavor_ratings.pluck(:participant_id)
+    #   @participants = Participant.where(id: participant_ids).shuffle
+    #   @flavors = @flavor_ratings.sort_by(&:flavor_strength).reverse.map(&:flavor).uniq
+    # end
+    def results
+      @flavor_ratings = FlavorRating.where(sample_id: @sample.id, flavor_strength: 1..)
+      participant_ids = @flavor_ratings.pluck(:participant_id)
+      @participants = Participant.where(id: participant_ids).shuffle
+      @flavors = @flavor_ratings.sort_by(&:flavor_strength).reverse.map(&:flavor).uniq
+    end
+
     private
 
     def sample

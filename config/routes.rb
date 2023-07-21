@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   delete 'participant_sessions', to: 'participant_sessions#destroy', as: 'logout_participant_session'
   # actually doing a tasting session
   resources :tasting, only: [:show] do
-    get 'results'
   end
+
   resources :samples, only: [:show], controller: 'tasting/samples' do
     # resources :flavor_ratings, only: [:update], controller: 'tasting/flavor_ratings', as: 'flavor_ratings'
     put 'flavor_ratings', to: 'tasting/flavor_ratings#update', as: 'flavor_ratings'
+    member do
+      get 'results'
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

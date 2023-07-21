@@ -3,6 +3,6 @@
     <h2 class="text-3xl"><%= link_to sample.name, sample_path(sample)  %></h2>
   </div>
   <div class="box mt-auto">
-    <p>view results</p>
+    <%= link_to "view results", results_sample_path(sample.id) %>
   </div>
 </div>
