@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'static/home'
   namespace :tasting do
     get 'flavor_ratings/update'
   end
@@ -8,8 +9,8 @@ Rails.application.routes.draw do
   resources :taste_sessions do
     resources :samples
   end
-  resources :participant_sessions, only: [:new, :create, :delete]
-
+  resources :participant_sessions, only: [:new, :create]
+  delete 'participant_sessions', to: 'participant_sessions#destroy', as: 'logout_participant_session'
   # actually doing a tasting session
   resources :tasting, only: [:show]
   resources :samples, only: [:show], controller: 'tasting/samples' do
@@ -19,5 +20,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "static#home"
 end

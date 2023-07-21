@@ -18,7 +18,7 @@ class ParticipantSessionsController < ApplicationController
     redirect_to root_path # do something about this later
   end
 
-  def delete
+  def destroy
     cookies.encrypted[:participant_id] = nil
 
     redirect_to action: :new
