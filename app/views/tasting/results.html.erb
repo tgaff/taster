@@ -1,0 +1,64 @@
+<div class="w-full">
+
+  <div class="block">
+    <h1 class="font-bold text-4xl py-1">Sample results</h1>
+
+    <p>Remember they might not be done yet!</p>
+  </div>
+
+  <div class="w-full flex flex-col py-3">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full text-left text-sm font-light">
+            <thead class="border-b font-medium dark:border-neutral-500">
+              <tr>
+                <th scope="col" class="px-6 py-4"> </th>
+                <% @flavors.each do |flav| %>
+                  <th scope="col" class="px-6 py-4"><%= flav.name %></th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <% @participants.each do |part| %>
+                <tr
+                  class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 disableddark:hover:bg-neutral-600">
+                  <td class="whitespace-nowrap px-6 py-4 font-medium"><%= part.name %></td>
+                  <% @flavors.each do |flav| %>
+                    <td class="whitespace-nowrap px-6 py-4 border-l text-center">
+                      <%
+                        flr = @flavor_ratings.find do |flr|
+                          flr.flavor_id == flav.id && flr.participant_id == part.id
+                        end
+                      %>
+                      <%= "🥃"*(flr.presence&.flavor_strength || 0) %>
+                    </td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w-full flex flex-col py-3">
+    <h1 class="font-bold text-4xl py-1">Most commonly reported flavors</h1>
+    <ol class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+      <%
+        frequency = {}
+        @flavors.each {|fl| frequency[fl.name] = 0 }
+        @flavor_ratings.each do |flr|
+          frequency[flr.flavor.name] += flr.flavor_strength
+        end
+        sorted = frequency.sort_by{|x,y| y}.reverse.to_h
+
+      %>
+      <% sorted.each.with_index do |flr,i| %>
+        <li><%= flr.first %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
