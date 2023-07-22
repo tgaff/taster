@@ -17,6 +17,7 @@ flavors = [
   { en: 'almonds',          ko: '아몬드', ja: '' },
   { en: 'black pepper',     ko: '후추', ja: '' },
   { en: 'smooth',           ko: '부드러움', ja: '' },
+  { en: 'vanilla',          ko: '바닐라', ja: '' },
   { en: 'dried fruit',      ko: '건과일', ja: '' },
   { en: 'barley',           ko: '보리', ja: '' },
   { en: 'mango',            ko: '망고', ja: '' },
