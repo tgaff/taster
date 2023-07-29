@@ -3,7 +3,7 @@
 flavors = [
   { en: 'oak',              ko: '오크 나무', ja: 'オークの木' },
   { en: 'spicy',            ko: '스파이시',  ja: 'スパイシー' },
-  { en: 'peat',             ko: '매캐한 향', ja: 'ピートって' },
+  { en: 'peat',             ko: '매캐한 향', ja: 'ピート' },
   { en: 'smoky',            ko: '스모키',   ja: 'スモーキー' },
   { en: 'apple',            ko: '사과',     ja: 'りんご' },
   { en: 'citrus',           ko: '감귤',     ja: 'シトラス' },
@@ -16,7 +16,7 @@ flavors = [
   { en: 'pear',             ko: '배', ja: '梨' },
   { en: 'almonds',          ko: '아몬드',   ja: 'アーモンド' },
   { en: 'black pepper',     ko: '후추',    ja: 'コショウ' },
-  { en: 'smooth',           ko: '부드러움', ja: '柔らかさ' },
+  { en: 'smooth',           ko: '부드러움', ja: 'なめらかな' },
   { en: 'vanilla',          ko: '바닐라',   ja: 'バニラ' },
   { en: 'dried fruit',      ko: '건과일',   ja: 'ドライフルーツ' },
   { en: 'barley',           ko: '보리',    ja: '大麦' },
