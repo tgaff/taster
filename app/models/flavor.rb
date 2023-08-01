@@ -10,7 +10,7 @@
 #
 class Flavor < ApplicationRecord
   extend Mobility
-  translates :name, type: :string
+  translates :name, type: :string, fallbacks: { ja: :en, ko: :en }
 
   has_many :flavor_ratings, dependent: :destroy
   # validate :name_is_unique

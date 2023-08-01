@@ -14,9 +14,9 @@
 
 
 <div class="border-2 rounded-lg flex flex-row items-center hover:border-gray-800  active:animate-[wiggle_1s_ease-in-out_infinite] relative select-none <%= shadow %>">
-  <%= button_to ' - ', sample_flavor_ratings_path(@sample), method: :put, params: { flavor_id: flavor_rating.flavor_id, crement: '-1' }, form_class: 'w-full ', class: 'z-10 w-full p-6 text-left font-semibold text-xl hover:bg-gradient-to-r from-sky-100 hover:bg-opacity-25' %>
+  <%= button_to ' - ', sample_flavor_ratings_path(@sample), method: :put, params: { flavor_id: flavor_rating.flavor_id, crement: '-1', locale: I18n.locale }, form_class: 'w-full ', class: 'z-10 w-full p-6 text-left font-semibold text-xl hover:bg-gradient-to-r from-sky-100 hover:bg-opacity-25' %>
   <span class="z-0 p-0 -m-4 text-center"><%= flavor_rating.flavor.name %></span>
-  <%= button_to ' + ', sample_flavor_ratings_path(@sample), method: :put, params: { flavor_id: flavor_rating.flavor_id, crement: '1' }, form_class: 'w-full', class: 'z-10 w-full p-6 text-right font-semibold text-xl hover:bg-gradient-to-l from-orange-200 hover:bg-opacity-25' %>
+  <%= button_to ' + ', sample_flavor_ratings_path(@sample), method: :put, params: { flavor_id: flavor_rating.flavor_id, crement: '1', locale: I18n.locale }, form_class: 'w-full', class: 'z-10 w-full p-6 text-right font-semibold text-xl hover:bg-gradient-to-l from-orange-200 hover:bg-opacity-25' %>
   <% if local_assigns[:pop] %>
     <div class="absolute inset-x-0 bottom-0 text-2xl text-center animate-[fadeaway_1s_ease] " style="animation-fill-mode: forwards;" >
       <%= pop %>
