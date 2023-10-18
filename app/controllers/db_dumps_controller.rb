@@ -19,6 +19,10 @@ class DbDumpsController < ApplicationController
   end
 
   def dump
+    unless Dir.exist?(DIR_PREFIX)
+      FileUtils.mkdir_p(DIR_PREFIX)
+    end
+
     tmp_dir = tmp_name
 
     dumper = YamlDb::SerializationHelper::Base.new(YamlDb::Helper)
