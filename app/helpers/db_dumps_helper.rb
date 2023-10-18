@@ -1,0 +1,2 @@
+module DbDumpsHelper
+end

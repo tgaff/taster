@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  get 'db_dumps', to: "db_dumps#index"
+  put 'db_dump', to: "db_dumps#dump", as: 'dump'
+
   # Defines the root path route ("/")
   root "static#home"
 end

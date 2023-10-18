@@ -1,0 +1,11 @@
+<div>
+  <%= button_to 'dump', dump_path, method: :put, form_class: 'flex', class: 'bg-red-600 rounded text-white p-2 hover:bg-red-800', data: { turbo: false } %>
+</div>
+
+<div class='py-7 m-7 flex'>
+  <ul>
+    <% @dir_contents.each do |file| %>
+      <li><%= file %></li>
+    <% end %>
+  </ul>
+</div>
