@@ -2,6 +2,12 @@ require 'yaml_db'
 require Rails.root + 'lib/zip_dir'
 class DbDumpsController < ApplicationController
   DIR_PREFIX = Rails.root + 'tmp/dbdumps'
+  basic_auth_config = {
+    name: Rails.configuration.x.db_dump_user,
+    password: Rails.configuration.x.db_dump_pw
+  }
+  puts "Basic auth #{basic_auth_config}"
+  http_basic_authenticate_with(**basic_auth_config)
 
   def index
     @dir_contents = if Dir.exist?(DIR_PREFIX)
@@ -24,6 +30,8 @@ class DbDumpsController < ApplicationController
 
     send_file(File.join(tmp_file), filename: "db-#{unique_name}.zip")
   end
+
+  private
 
   def tmp_name
     (DIR_PREFIX + unique_name).to_s
